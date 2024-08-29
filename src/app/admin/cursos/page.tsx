@@ -26,7 +26,7 @@ const Notas: React.FC = () => {
 
     const handleAddOrUpdate = async () => {
         const notaData: ProfessorNota = {
-            id: currentNota?.id,  // Include id if it's an update
+            id: currentNota?.id ?? 0,  // Include id if it's an update
             nome,
             disciplina,
             nota: Number(nota),
