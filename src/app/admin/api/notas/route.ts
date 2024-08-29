@@ -1,10 +1,14 @@
-// app/(admin)/api/notas/route.ts
-
 import { NextResponse } from 'next/server';
 import clientPromise from '@/app/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-
+type ProfessorNota = {
+  id?: string;
+  nome: string;
+  disciplina: string;
+  nota: number;
+  data: string;
+};
 
 export async function GET() {
   const client = await clientPromise;
