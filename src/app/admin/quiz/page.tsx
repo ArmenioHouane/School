@@ -2,17 +2,24 @@
 
 import React, { useState } from 'react';
 
+// Define the structure of each quiz object
+interface Quiz {
+  question: string;
+  options: string[];
+  correctAnswer: number | null; // Allow correctAnswer to be either a number or null
+}
+
 const QuizCreatePage = () => {
   const [topic, setTopic] = useState('');
-  const [quizzes, setQuizzes] = useState([
+  const [quizzes, setQuizzes] = useState<Quiz[]>([
     {
       question: '',
       options: ['', '', '', ''],
-      correctAnswer: null,
+      correctAnswer: null, // Correct answer starts as null
     },
   ]);
 
-  // Manipuladores de estado como antes...
+  // Other state handlers as before...
 
   const handleTopicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTopic(e.target.value);
@@ -32,7 +39,7 @@ const QuizCreatePage = () => {
 
   const handleCorrectAnswerSelect = (quizIndex: number, optionIndex: number) => {
     const newQuizzes = [...quizzes];
-    newQuizzes[quizIndex].correctAnswer = optionIndex;
+    newQuizzes[quizIndex].correctAnswer = optionIndex; // Assigning a number is now valid
     setQuizzes(newQuizzes);
   };
 
@@ -74,18 +81,19 @@ const QuizCreatePage = () => {
       const savedQuiz = await response.json();
       console.log('Quiz salvo:', savedQuiz);
 
-      // Limpa o formulário após salvar
+      // Clear the form after saving
       setTopic('');
       setQuizzes([{ question: '', options: ['', '', '', ''], correctAnswer: null }]);
     } catch (error) {
       console.error('Erro ao salvar o quiz:', error);
     }
   };
-   const handleDeleteQuiz = async (quizIndex: number) => {
+
+  const handleDeleteQuiz = async (quizIndex: number) => {
     const quizToDelete = quizzes[quizIndex];
-    // Aqui você pode adicionar a lógica para deletar no backend
+    // Here you can add logic to delete on the backend
     try {
-      const response = await fetch(`/admin/api/quiz/${quizToDelete.id}`, { // Supondo que você tenha um ID para o quiz
+      const response = await fetch(`/admin/api/quiz/${quizToDelete.id}`, {
         method: 'DELETE',
       });
 
@@ -95,7 +103,7 @@ const QuizCreatePage = () => {
 
       const newQuizzes = quizzes.filter((_, index) => index !== quizIndex);
       setQuizzes(newQuizzes);
-      console.log('Quiz deletado com sucesso');
+      console.log('Quiz deleted successfully');
     } catch (error) {
       console.error('Erro ao deletar o quiz:', error);
     }
@@ -167,6 +175,7 @@ const QuizCreatePage = () => {
                   />
                   <input
                     type="radio"
+                    placeholder="Enter the topic for the quiz sequence"
                     name={`correctAnswer-${quizIndex}`}
                     checked={quiz.correctAnswer === optionIndex}
                     onChange={() => handleCorrectAnswerSelect(quizIndex, optionIndex)}
