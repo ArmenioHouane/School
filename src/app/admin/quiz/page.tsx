@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 // Define the structure of each quiz object
 interface Quiz {
+  id: number;
   question: string;
   options: string[];
   correctAnswer: number | null; // Allow correctAnswer to be either a number or null
@@ -13,6 +15,7 @@ const QuizCreatePage = () => {
   const [topic, setTopic] = useState('');
   const [quizzes, setQuizzes] = useState<Quiz[]>([
     {
+      id: uuidv4(),
       question: '',
       options: ['', '', '', ''],
       correctAnswer: null, // Correct answer starts as null
@@ -56,6 +59,7 @@ const QuizCreatePage = () => {
   };
 
   const addQuiz = () => {
+    const newId = uuidv4();
     setQuizzes([...quizzes, { question: '', options: ['', '', '', ''], correctAnswer: null }]);
   };
 
