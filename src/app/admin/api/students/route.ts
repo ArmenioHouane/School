@@ -53,6 +53,6 @@ export async function PUT(request: Request) {
     );
     return NextResponse.json(updatedStudent);
   } else {
-    return NextResponse.json({ error: "Student ID is missing" }, { status: 400 });
+    return NextResponse.json({ error: "Studente ID is missing" }, { status: 400 });
   }
 }
