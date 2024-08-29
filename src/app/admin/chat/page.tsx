@@ -4,4 +4,4 @@ const Chat = () => {
   return <div>Hello from Chat page</div>;
 };
 
-e
+export default Chat;
