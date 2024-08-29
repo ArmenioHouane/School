@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 // Define the Student type
 type Student = {
-  _id?: string | ObjectId; // Accept both string and ObjectId
+  _id?: ObjectId; // Accept both string and ObjectId
   name: string;
   age: number;
   class: string;
