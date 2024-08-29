@@ -25,7 +25,12 @@ const Notas: React.FC = () => {
     };
 
     const handleAddOrUpdate = async () => {
-        const notaData: ProfessorNota = { nome, disciplina, nota: Number(nota) };
+        const notaData: ProfessorNota = {
+            id: currentNota?.id,  // Include id if it's an update
+            nome,
+            disciplina,
+            nota: Number(nota),
+        };
 
         try {
             if (currentNota) {
@@ -34,7 +39,7 @@ const Notas: React.FC = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ ...notaData, id: currentNota.id }),
+                    body: JSON.stringify(notaData),
                 });
                 setModalMessage('Nota atualizada com sucesso!');
             } else {
@@ -164,26 +169,24 @@ const Notas: React.FC = () => {
             {/* Modal de Sucesso */}
             {isSuccessModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <div className="bg-[#2F2F2F] p-10 rounded shadow-lg text-center">
-                    <div className="flex items-center justify-center mb-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6 text-[#fff] mr-2" // Ajuste a cor e o tamanho conforme necessário
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path d="M10 1a9 9 0 100 18 9 9 0 000-18zm4.707 7.293a1 1 0 01-1.414 0L10 9.414 8.707 8.121a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 000-1.414z" />
-                        </svg>
-                        <h2 className="font-bold text-[#0f0]">Sucesso</h2>
+                    <div className="bg-[#2F2F2F] p-10 rounded shadow-lg text-center">
+                        <div className="flex items-center justify-center mb-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-[#fff] mr-2" 
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path d="M10 1a9 9 0 100 18 9 9 0 000-18zm4.707 7.293a1 1 0 01-1.414 0L10 9.414 8.707 8.121a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 000-1.414z" />
+                            </svg>
+                            <h2 className="font-bold text-[#0f0]">Sucesso</h2>
+                        </div>
+                        <p>O elemento foi criado com <span className='text-[#0f0]'>sucesso!</span></p>
+                        <button onClick={closeModal} className="bg-blue-500 text-white font-bold rounded px-4 py-1 mt-2">
+                            Fechar
+                        </button>
                     </div>
-                    <p>O elemento foi criado com <span className='text-[#0f0]'>sucesso!</span>
-                        </p>
-                    <button onClick={closeModal} className="bg-blue-500  text-white font-bold rounded px-4 py-1 mt-2">
-                        Fechar
-                    </button>
                 </div>
-            </div>
-            
             )}
 
             {/* Modal de Erro */}
