@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 // Define the Student type
 type Student = {
-  _id?: ObjectId | string; // Accept both string and ObjectId
+  _id?: ObjectId; // Strictly ObjectId or undefined
   name: string;
   age: number;
   class: string;
@@ -36,23 +36,20 @@ export async function DELETE(request: Request) {
 }
 
 export async function PUT(request: Request) {
-  const updatedStudent: Student = await request.json();
+  const updatedStudent = await request.json();
   const client = await clientPromise;
   const db = client.db('Estudantes'); // Replace with your database name
 
-  // Handle the _id conversion safely
-  if (updatedStudent._id) {
-    // Check if the _id is a valid ObjectId, if not convert it
-    const studentId = ObjectId.isValid(updatedStudent._id)
-      ? new ObjectId(updatedStudent._id)
-      : new ObjectId(updatedStudent._id.toString());
-
-    await db.collection('students').updateOne(
-      { _id: studentId },
-      { $set: updatedStudent }
-    );
-    return NextResponse.json(updatedStudent);
-  } else {
-    return NextResponse.json({ error: "Studente ID is missing" }, { status: 400 });
+  // Convert _id to ObjectId if necessary
+  if (updatedStudent._id && typeof updatedStudent._id === 'string') {
+    updatedStudent._id = new ObjectId(updatedStudent._id);
   }
+
+  // Now updatedStudent._id is either ObjectId or undefined
+  await db.collection('students').updateOne(
+    { _id: updatedStudent._id }, // This is now of type ObjectId | undefined
+    { $set: updatedStudent }
+  );
+
+  return NextResponse.json(updatedStudent);
 }
