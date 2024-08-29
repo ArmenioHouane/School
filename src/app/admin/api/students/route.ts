@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 // Define the Student type
 type Student = {
-  _id?: string; // Optional because it will be added after the document is inserted
+  _id?: string | ObjectId; // Accept both string and ObjectId
   name: string;
   age: number;
   class: string;
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   const client = await clientPromise;
   const db = client.db('Estudantes'); // Replace with your database name
   const result = await db.collection('students').insertOne(newStudent);
-  newStudent._id = result.insertedId.toString(); // Add the generated ID to the student object
+  newStudent._id = result.insertedId; // Use ObjectId directly
   return NextResponse.json(newStudent, { status: 201 });
 }
 
@@ -40,7 +40,7 @@ export async function PUT(request: Request) {
   const client = await clientPromise;
   const db = client.db('Estudantes'); // Replace with your database name
   await db.collection('students').updateOne(
-    { _id: new ObjectId(updatedStudent._id) },
+    { _id: new ObjectId(updatedStudent._id as string) }, // Convert string to ObjectId
     { $set: updatedStudent }
   );
   return NextResponse.json(updatedStudent);
