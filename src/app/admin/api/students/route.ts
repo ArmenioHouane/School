@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 // Define the Student type
 type Student = {
-  _id?: ObjectId; // Accept both string and ObjectId
+  _id?: ObjectId | string; // Accept both string and ObjectId
   name: string;
   age: number;
   class: string;
@@ -39,9 +39,20 @@ export async function PUT(request: Request) {
   const updatedStudent: Student = await request.json();
   const client = await clientPromise;
   const db = client.db('Estudantes'); // Replace with your database name
-  await db.collection('students').updateOne(
-    { _id: new ObjectId(updatedStudent._id as string) }, // Convert string to ObjectId
-    { $set: updatedStudent }
-  );
-  return NextResponse.json(updatedStudent);
+
+  // Handle the _id conversion safely
+  if (updatedStudent._id) {
+    // Check if the _id is a valid ObjectId, if not convert it
+    const studentId = ObjectId.isValid(updatedStudent._id)
+      ? new ObjectId(updatedStudent._id)
+      : new ObjectId(updatedStudent._id.toString());
+
+    await db.collection('students').updateOne(
+      { _id: studentId },
+      { $set: updatedStudent }
+    );
+    return NextResponse.json(updatedStudent);
+  } else {
+    return NextResponse.json({ error: "Student ID is missing" }, { status: 400 });
+  }
 }
