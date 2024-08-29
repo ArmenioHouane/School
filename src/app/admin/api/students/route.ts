@@ -1,10 +1,15 @@
-// app/(admin)/api/students/route.ts
-
 import { NextResponse } from 'next/server';
 import clientPromise from '@/app/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-
+// Define the Student type
+type Student = {
+  _id?: string; // Optional because it will be added after the document is inserted
+  name: string;
+  age: number;
+  class: string;
+  // Add other relevant fields here
+};
 
 export async function GET() {
   const client = await clientPromise;
