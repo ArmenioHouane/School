@@ -60,7 +60,7 @@ const GradesPage: React.FC = () => {
 
     const createdStudent = await response.json();
     setStudents([...students, createdStudent]);
-    setModalMessage('Student successfully created!', showSuccessModal);
+    setModalMessage('Student successfully created!');
     setShowSuccessModal(true);
     resetForm();
   };
@@ -244,16 +244,8 @@ const GradesPage: React.FC = () => {
       />
 
       <FixedPlugin />
-      <SuccessModal
-        isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
-        message={modalMessage}
-      />
-      <ErrorModal
-        isOpen={showErrorModal}
-        onClose={() => setShowErrorModal(false)}
-        message={errorMessage}
-      />
+     
+     
     </>
   );
 };

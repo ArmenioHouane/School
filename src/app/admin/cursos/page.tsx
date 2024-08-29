@@ -120,14 +120,15 @@ const Notas: React.FC = () => {
                     className="border border-gray-300 rounded px-2 py-1 mr-2"
                     required
                 />
-                <input
-                    type="number"
-                    value={nota}
-                    onChange={(e) => setNota(e.target.value)}
-                    placeholder="Nota"
-                    className="border border-gray-300 rounded px-2 py-1 mr-2"
-                    required
-                />
+              <input
+    type="number"
+    value={nota}
+    onChange={(e) => setNota(e.target.value === "" ? "" : Number(e.target.value))}
+    placeholder="Nota"
+    className="border border-gray-300 rounded px-2 py-1 mr-2"
+    required
+/>
+
                 <button type="submit" className="bg-blue-500 text-white rounded px-4 py-1">
                     {currentNota ? 'Atualizar' : 'Adicionar'}
                 </button>
