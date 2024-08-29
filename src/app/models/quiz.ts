@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
 interface IQuiz extends Document {
-  id: string;
+  id?: number;
   topic: string;
   question: string;
   options: string[];

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Define the structure of each quiz object
 interface Quiz {
-  id: number;
+  id?: number;
   question: string;
   options: string[];
   correctAnswer: number | null; // Allow correctAnswer to be either a number or null
@@ -59,10 +59,13 @@ const QuizCreatePage = () => {
   };
 
   const addQuiz = () => {
-    const newId = uuidv4();
-    setQuizzes([...quizzes, { question: '', options: ['', '', '', ''], correctAnswer: null }]);
+    setQuizzes([...quizzes, {
+      id: parseInt(uuidv4()), // Convert string to number
+      question: '',
+      options: ['', '', '', ''],
+      correctAnswer: null,
+    }]);
   };
-
   const handleSaveTopic = async () => {
     const quizData = {
       topic,
