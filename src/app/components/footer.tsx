@@ -9,8 +9,8 @@ export function Footer() {
           <h2 className="font-bold mb-2">Landing Page</h2>
           <ul className="space-y-2">
             <li>
-              <Link href="#hero" className="hover:underline">
-                Hero
+              <Link href="/auth/login" className="hover:underline">
+                Login
               </Link>
             </li>
             <li>
@@ -34,12 +34,12 @@ export function Footer() {
           <h2 className="font-bold mb-2">Dashboard</h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/dashboard/admin" className="hover:underline">
+              <Link href="/admin/home" className="hover:underline">
                 Admin
               </Link>
             </li>
             <li>
-              <Link href="/dashboard/aluno" className="hover:underline">
+              <Link href="/student/home" className="hover:underline">
                 Aluno
               </Link>
             </li>

@@ -29,15 +29,12 @@ export function Navbar() {
                 Perfil
               </Link>
               <Link href="/profile/settings" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
-                Configurações
-              </Link>
-              <Link href="/profile/definitions" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
                 Definições
               </Link>
-              <Link href="/login" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+              <Link href="/auth/login" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
                 Login
               </Link>
-              <Link href="/signup" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+              <Link href="/auth/signup" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
                 Signup
               </Link>
               <button
