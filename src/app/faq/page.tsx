@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 
 'use client';
 import {Navbar} from "@/app/components/navbar";
@@ -36,7 +36,7 @@ const Faq = () => {
               O que &eacute; A-Aprender?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            A-Aprender &eacute; uma plataforma de aprendizado online projetada para fornecer conte&uacute;do educacional de alta qualidade em uma variedade de assuntos. Nossa plataforma oferece cursos, quizzes e recursos interativos para melhorar a experi&ecirc;ncia de aprendizado.<br /><br />
+            A-Aprender &eacute; uma plataforma de aprendizado online projetada para fornecer conte&uacute;do educacional de alta qualidade em uma variedade de assuntos. Nossa plataforma oferece cursos, quizzes e recursos interativos para melhorar a experi&ecirc;ncia de aprendizado.
 </p>
           </div>
           <div className="mb-10">
@@ -56,7 +56,7 @@ const Faq = () => {
               Como fa&ccedil;o para me inscrever?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Para se inscrever, clique no bot&atilde;o "Inscreva-se" na p&aacute;gina inicial, preencha seus dados e siga as instru&ccedil;&otilde;es para criar sua conta.<br /><br />
+            Para se inscrever, clique no bot&atilde;o &quot;Inscreva-se&quot; na p&aacute;gina inicial, preencha seus dados e siga as instru&ccedil;&otilde;es para criar sua conta.
     </p>
           </div>
           <div className="mb-10">
@@ -76,7 +76,7 @@ const Faq = () => {
               Como posso encontrar um curso?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Use a barra de pesquisa em nossa p&aacute;gina inicial ou navegue pelas categorias de cursos para encontrar o curso de seu interesse.<br /><br />
+            Use a barra de pesquisa em nossa p&aacute;gina inicial ou navegue pelas categorias de cursos para encontrar o curso de seu interesse.
    </p>
            
           </div>
@@ -96,7 +96,7 @@ const Faq = () => {
               </svg>
               Posso visualizar um curso antes de me inscrever?   </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Sim, muitos cursos oferecem uma se&ccedil;&atilde;o de pr&eacute;-visualiza&ccedil;&atilde;o que permite ver o conte&uacute;do do curso e o instrutor antes de se inscrever.<br /><br />
+            Sim, muitos cursos oferecem uma se&ccedil;&atilde;o de pr&eacute;-visualiza&ccedil;&atilde;o que permite ver o conte&uacute;do do curso e o instrutor antes de se inscrever.
  </p>
            
           </div>
@@ -139,7 +139,7 @@ const Faq = () => {
               Posso baixar materiais do curso?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Alguns cursos oferecem materiais para download. Verifique os detalhes do curso ou entre em contato com o instrutor para mais informa&ccedil;&otilde;es.<br /><br />
+            Alguns cursos oferecem materiais para download. Verifique os detalhes do curso ou entre em contato com o instrutor para mais informa&ccedil;&otilde;es.
 </p>
            </div>
           <div className="mb-10">
@@ -159,7 +159,7 @@ const Faq = () => {
               Como posso entrar em contato com o suporte ao cliente?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Voc&ecirc; pode entrar em contato com nossa equipe de suporte atrav&eacute;s da p&aacute;gina "Fale Conosco" em nosso site ou enviando um e-mail para support@a-aprender.com.<br /><br />
+            Voc&ecirc; pode entrar em contato com nossa equipe de suporte atrav&eacute;s da p&aacute;gina &quot;Fale Conosco&quot; em nosso site ou enviando um e-mail para support@a-aprender.com.
 </p>
              </div>
           <div className="mb-10">
@@ -179,7 +179,7 @@ const Faq = () => {
               O que devo fazer se enfrentar problemas t&eacute;cnicos?
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
-            Primeiro, tente atualizar a p&aacute;gina ou limpar o cache do seu navegador. Se o problema persistir, entre em contato com nossa equipe de suporte com detalhes sobre o problema que voc&ecirc; est&aacute; enfrentando.<br /><br />
+            Primeiro, tente atualizar a p&aacute;gina ou limpar o cache do seu navegador. Se o problema persistir, entre em contato com nossa equipe de suporte com detalhes sobre o problema que voc&ecirc; est&aacute; enfrentando.
 </p>
           
           </div>
