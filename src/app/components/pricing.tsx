@@ -55,7 +55,7 @@ const Pricing: React.FC = () => {
                 <span>Suporte por e-mail</span>
               </li>
             </ul>
-            <Link href="/signup">
+            <Link href="/auth/signup">
               <div className="inline-block text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">
                 Comece agora
               </div>
@@ -106,7 +106,7 @@ const Pricing: React.FC = () => {
 </span>
               </li>
             </ul>
-            <Link href="/signup">
+            <Link href="/auth/signup">
               <div className="inline-block text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">
                 Comece agora
               </div>
@@ -156,7 +156,7 @@ const Pricing: React.FC = () => {
                 <span>Suporte dedicado</span>
               </li>
             </ul>
-            <Link href="/signup">
+            <Link href="/auth/signup">
               <div className="inline-block text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">
                 Comece agora
               </div>
